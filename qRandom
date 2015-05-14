@@ -1,0 +1,14 @@
+### recommend movies with dithering ####
+### run command multiple times to generate different resutls ###
+curl -XGET 'localhost:9200/movie/film/_search?pretty' -d '
+{
+  "query": {
+    "function_score": {
+      "query": { "match": { "indicators":"265 474 180"} },
+      "functions":[ {"random_score": { } } ],
+      "score_mode":"sum"
+    }
+  },
+  "fields":["_id","title","genre","year"],
+  "size":"10"
+}'

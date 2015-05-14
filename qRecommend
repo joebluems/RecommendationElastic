@@ -1,0 +1,5 @@
+#### recommend based on Hunt for Red October, Dr. Strangelove and Apocalypse Now ###
+curl -XGET 'localhost:9200/movie/film/_search?pretty' -d '{
+    "query": { "match":{"indicators":"265 474 180"} } ,
+    "fields":["_id","title","year","genre"]
+}'

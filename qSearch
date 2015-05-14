@@ -1,0 +1,4 @@
+curl -XGET 'localhost:9200/movie/film/_search?pretty' -d '{
+    "query": { "match":{"title":"hunt"} } ,
+    "fields":["_id","title","year","genre"]
+}'
